@@ -7,10 +7,14 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        grass: '#45C67D',
+        carbon: '#0E0D1B',
+        smoke: '#E4EAFD',
+      },
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        mobile: 'url("https://i.imgur.com/UHTLB13.png")',
+        desktop: 'url("https://i.imgur.com/LMdEec6.png")',
       },
     },
   },
