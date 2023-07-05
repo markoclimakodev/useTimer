@@ -8,7 +8,7 @@ export const TimerDisplay = ({
   secondsRemaining,
 }: TimerDisplayProps) => {
   return (
-    <p className="flex items-center justify-center text-6xl text-smoke md:text-8xl xl:text-9xl">
+    <p className="text-display_small text-smoke md:text-display_large">
       {minutesRemaining.toString().padStart(2, '0')}:
       {secondsRemaining.toString().padStart(2, '0')}
     </p>

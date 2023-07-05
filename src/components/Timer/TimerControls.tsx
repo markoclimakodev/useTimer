@@ -19,7 +19,7 @@ export const TimerControls = ({
   handleOpenModal,
 }: TimerControlsProps) => {
   return (
-    <section className="flex gap-4 px-4 py-2">
+    <section className="flex w-full justify-center gap-4 ">
       {!modalIsOpen && (
         <Button
           icon={isCountdownActive ? PauseIcon : PlayIcon}

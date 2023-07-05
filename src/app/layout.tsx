@@ -16,7 +16,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body
-        className={`${b612Mono.className} max-w-screen max-h-max bg-carbon bg-mobile bg-cover  bg-no-repeat md:bg-desktop`}
+        className={`${b612Mono.className} h-screen w-full bg-carbon bg-mobile bg-cover bg-no-repeat md:h-full  md:bg-desktop`}
       >
         {children}
       </body>

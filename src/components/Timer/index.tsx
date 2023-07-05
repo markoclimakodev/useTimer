@@ -76,7 +76,7 @@ export function Timer() {
 
   return (
     <>
-      <section className="flex w-52 flex-col items-center justify-center rounded-lg bg-carbon_100 p-6 opacity-50 md:w-full md:gap-8">
+      <section className="flex flex-col items-center rounded-lg bg-carbon_100 px-16 py-4 text-center md:px-16">
         <TimerDisplay
           minutesRemaining={minutesRemaining}
           secondsRemaining={secondsRemaining}
