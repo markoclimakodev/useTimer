@@ -75,8 +75,8 @@ export function Timer() {
   const secondsRemaining = time - minutesRemaining * 60
 
   return (
-    <main className="relative flex h-screen flex-col items-center">
-      <section className="mx-auto mt-10 flex w-52 flex-col items-center justify-center rounded-lg bg-carbon p-6 opacity-50 md:w-1/3 md:gap-16">
+    <>
+      <section className="flex w-52 flex-col items-center justify-center rounded-lg bg-carbon_100 p-6 opacity-50 md:w-full md:gap-8">
         <TimerDisplay
           minutesRemaining={minutesRemaining}
           secondsRemaining={secondsRemaining}
@@ -97,6 +97,6 @@ export function Timer() {
         timeInputPlaceholder={timeInputPlaceholder}
         timeInputValue={timeInputValue}
       />
-    </main>
+    </>
   )
 }

@@ -10,6 +10,7 @@ module.exports = {
       colors: {
         grass: '#45C67D',
         carbon: '#0E0D1B',
+        carbon_100: '#2a2a2a',
         smoke: '#E4EAFD',
       },
       backgroundImage: {
