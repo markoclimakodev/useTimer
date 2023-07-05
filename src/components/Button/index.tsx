@@ -6,7 +6,10 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 export function Button({ icon: Icon, ...rest }: ButtonProps) {
   return (
-    <button {...rest} className="cursor-pointer">
+    <button
+      {...rest}
+      className="cursor-pointer disabled:cursor-not-allowed disabled:opacity-50"
+    >
       <Icon className=" fill-smoke hover:fill-grass hover:stroke-grass" />
     </button>
   )
