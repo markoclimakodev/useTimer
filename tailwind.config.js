@@ -12,7 +12,7 @@ module.exports = {
         carbon: '#0E0D1B',
         carbon_100: '#282828',
         carbon_200: '#454141',
-        smoke: '#909BBD',
+        smoke: '#CFD4D4',
       },
       backgroundImage: {
         mobile: 'url("https://i.imgur.com/UHTLB13.png")',
