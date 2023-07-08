@@ -58,7 +58,7 @@ export const SpotifyPlayer = () => {
         <LinkIcon />
       </label>
       {isLoading ? (
-        <section className="flex h-[420px] w-full items-center justify-center md:h-[480px] xl:h-[361px] 2xl:h-[422px]">
+        <section className="flex h-[420px] w-full items-center justify-center md:h-[480px] xl:h-[361px] 2xl:h-[380px] 3xl:h-[480px]">
           <p className="text-smoke ">Carregando...</p>
         </section>
       ) : (
