@@ -15,8 +15,8 @@ module.exports = {
         smoke: '#CFD4D4',
       },
       backgroundImage: {
-        mobile: 'url("https://i.imgur.com/UHTLB13.png")',
-        desktop: 'url("https://i.imgur.com/LMdEec6.png")',
+        mobile: 'url("/images/mobile-bg.svg")',
+        desktop: 'url("/images/desktop-bg.svg")',
       },
       fontSize: {
         display_small: [
