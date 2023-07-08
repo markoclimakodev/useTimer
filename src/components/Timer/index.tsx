@@ -10,6 +10,9 @@ export function Timer() {
   const [timeInputValue, setTimeInputValue] = useState('')
   const [isCountdownActive, setIsCountdownActive] = useState(false)
   const [timeInputPlaceholder, setTimeInputPlaceholder] = useState('Ex:3:30')
+  const [selectedFeature, setSelectedFeature] = useState<
+    'play' | 'pause' | 'none'
+  >('none')
 
   const handleOpenModal = () => {
     setModalIsOpen(true)
@@ -32,25 +35,42 @@ export function Timer() {
     if (!timeValue.includes(':')) timeValue = `${timeValue}:00`
 
     const [minutesString, secondsString] = timeValue.split(':')
-    const minutes = Number(minutesString)
+    let minutes = Number(minutesString)
     const seconds = Number(secondsString)
+
+    if (minutes > 60) {
+      minutes = 60
+    }
+
     const totalSeconds = minutes * 60 + seconds
     setTimerValue(totalSeconds)
     setModalIsOpen(false)
     setTimeInputValue('')
   }
 
-  const handleStartPause = () => {
+  const handleStart = () => {
     if (time === 0) {
       handleOpenModal()
     } else {
-      setIsCountdownActive(!isCountdownActive)
+      setIsCountdownActive(true)
+      setSelectedFeature('play')
+    }
+  }
+
+  const handlePause = () => {
+    if (time === 0) {
+      handleOpenModal()
+      setIsCountdownActive(false)
+    } else {
+      setIsCountdownActive(false)
+      setSelectedFeature('pause')
     }
   }
 
   const handleStop = () => {
     setTimerValue(0)
     setIsCountdownActive(false)
+    setSelectedFeature('none')
   }
 
   const handleSetTimerValue = (event: ChangeEvent<HTMLInputElement>) => {
@@ -66,6 +86,9 @@ export function Timer() {
       }, 1000)
     }
 
+    if (countdownInterval === 0) {
+      setSelectedFeature('none')
+    }
     return () => {
       clearInterval(countdownInterval)
     }
@@ -84,9 +107,10 @@ export function Timer() {
         <TimerControls
           handleOpenModal={handleOpenModal}
           handleStop={handleStop}
-          handleStartPause={handleStartPause}
+          handleStart={handleStart}
+          handlePause={handlePause}
           isCountdownActive={isCountdownActive}
-          modalIsOpen={modalIsOpen}
+          selectedFeature={selectedFeature}
         />
       </section>
       <TimerFormModal

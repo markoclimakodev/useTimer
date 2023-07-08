@@ -5,34 +5,35 @@ import { TimerIcon } from '@/assets/icons/TimerIcon'
 import { Button } from '../Button'
 
 interface TimerControlsProps {
-  modalIsOpen: boolean
   isCountdownActive: boolean
-  handleStartPause: () => void
+  selectedFeature: 'play' | 'pause' | 'none'
+  handleStart: () => void
+  handlePause: () => void
   handleStop: () => void
   handleOpenModal: () => void
 }
 export const TimerControls = ({
-  modalIsOpen,
-  isCountdownActive,
-  handleStartPause,
+  handleStart,
+  handlePause,
   handleStop,
   handleOpenModal,
+  isCountdownActive,
+  selectedFeature,
 }: TimerControlsProps) => {
   return (
     <section className="flex w-full justify-center gap-4 ">
-      {!modalIsOpen && (
-        <Button
-          icon={isCountdownActive ? PauseIcon : PlayIcon}
-          onClick={handleStartPause}
-          disabled={!!modalIsOpen}
-        />
-      )}
-      <Button icon={StopIcon} onClick={handleStop} />
       <Button
-        icon={TimerIcon}
-        onClick={handleOpenModal}
-        disabled={!!modalIsOpen}
+        icon={PlayIcon}
+        onClick={handleStart}
+        isActive={isCountdownActive && selectedFeature === 'play'}
       />
+      <Button
+        icon={PauseIcon}
+        onClick={handlePause}
+        isActive={!isCountdownActive && selectedFeature === 'pause'}
+      />
+      <Button icon={StopIcon} onClick={handleStop} />
+      <Button icon={TimerIcon} onClick={handleOpenModal} />
     </section>
   )
 }

@@ -42,7 +42,7 @@ export const TimerFormModal = ({
               onChange={handleSetTimerValue}
               value={timeInputValue}
               placeholder={timeInputPlaceholder}
-              className="bg-transparent text-smoke"
+              className="bg-transparent text-smoke outline-none"
             />
             <TimerIcon className="fill-smoke" />
           </label>
