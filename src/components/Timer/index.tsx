@@ -81,7 +81,6 @@ export function Timer() {
   useEffect(() => {
     let countdownInterval: any
     const timeEnd = new Audio('/sounds/notification.mp3')
-    const timeEnding = new Audio('/sounds/clock-ticking.mp3')
 
     if (isCountdownActive && time > 0) {
       countdownInterval = setInterval(() => {
@@ -91,10 +90,6 @@ export function Timer() {
 
     if (countdownInterval === 0) {
       setSelectedFeature('none')
-    }
-
-    if (time === 10) {
-      timeEnding.play()
     }
 
     if (time === 0 && isCountdownActive) {
