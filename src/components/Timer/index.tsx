@@ -80,8 +80,8 @@ export function Timer() {
 
   useEffect(() => {
     let countdownInterval: any
-    const timeEnd = new Audio('/sounds/end.mp3')
-    const timeEnding = new Audio('/sounds/ending.mp3')
+    const timeEnd = new Audio('/sounds/notification.mp3')
+    const timeEnding = new Audio('/sounds/clock-ticking.mp3')
 
     if (isCountdownActive && time > 0) {
       countdownInterval = setInterval(() => {
