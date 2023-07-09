@@ -98,6 +98,7 @@ export function Timer() {
     } else if (time === 0 && isCountdownActive) {
       timeEnd.play()
       setSelectedFeature('none')
+      setIsCountdownActive(false)
       timeEnd.play()
     }
 
