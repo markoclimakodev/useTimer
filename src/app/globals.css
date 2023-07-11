@@ -1,3 +1,41 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.rhap_container {
+flex-grow:1
+}
+
+.rhap_main {
+font-size:1.5rem;
+background-color: #282828;
+padding: 0.65rem;
+border-radius:0.5rem;
+}
+
+.rhap_progress-section{
+display: flex;
+justify-content:space-between;
+width: 100%;
+color: #CFD4D4;
+
+}
+
+.rhap_progress-bar {
+  color: #CFD4D4;
+
+}
+
+.rhap_controls-section {
+color: #CFD4D4;
+display: flex;
+justify-content:space-between;
+}
+
+.rhap_main-controls {
+display: flex;
+justify-content:space-between;
+gap:1rem;
+
+
+}
