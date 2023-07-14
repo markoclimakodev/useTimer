@@ -6,7 +6,7 @@ export function PlayIcon({ className }: IconProps) {
       width="31"
       height="30"
       viewBox="0 0 31 30"
-      fill="none"
+      fill="#CFD4D4"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
     >

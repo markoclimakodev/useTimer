@@ -10,12 +10,13 @@ export function Button({ icon: Icon, isActive = false, ...rest }: ButtonProps) {
     <button
       {...rest}
       className="cursor-pointer disabled:cursor-not-allowed disabled:opacity-50"
+      type="button"
     >
       <Icon
         className={
           isActive
-            ? ' fill-grass'
-            : ' fill-smoke hover:fill-grass hover:stroke-grass'
+            ? ' fill-grass stroke-grass'
+            : 'fill-smoke hover:fill-grass hover:stroke-grass'
         }
       />
     </button>
