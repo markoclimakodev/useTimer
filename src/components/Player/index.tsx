@@ -18,7 +18,7 @@ export const Player = ({ timer }: PlayerProps) => {
   const [isLoading, setIsLoading] = useState(true)
   const [placeholderMessage, setPlaceholderMessage] = useState(placeholder)
   const [playerVariant, setPlayerVariant] = useState<'spotify' | 'nature'>(
-    'spotify',
+    'nature',
   )
   const handleVariant = (event: MouseEvent) => {
     const { id } = event.currentTarget
@@ -79,15 +79,15 @@ export const Player = ({ timer }: PlayerProps) => {
           className="transition-all"
         />
       </section>
-      {playerVariant === 'spotify' ? (
+      {playerVariant === 'nature' ? (
+        <NaturePlayer timer={timer} />
+      ) : (
         <SpotifyPlayer
           handlePlaylistChange={handlePlaylistChange}
           playlist={playlist}
           placeholderMessage={placeholderMessage}
           isLoading={isLoading}
         />
-      ) : (
-        <NaturePlayer timer={timer} />
       )}
     </>
   )

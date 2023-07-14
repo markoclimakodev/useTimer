@@ -17,9 +17,9 @@ export const NaturePlayer = ({ timer }: NaturePlayerProps) => {
   }, [timer])
 
   return (
-    <section className=" flex h-[420px] w-full flex-col items-start gap-4  opacity-80 md:h-[480px] xl:h-[361px] 2xl:h-[380px] 3xl:h-[480px]">
+    <section className=" flex h-[420px] w-full flex-col items-start gap-4 overflow-auto opacity-80 md:h-[480px] xl:h-[380px] 2xl:h-[420px] 3xl:h-[480px]">
       {natureCardsInfo.map((natureCard, index) => (
-        <section key={natureCard.type} className="flex w-full gap-2 ">
+        <section key={natureCard.type} className="flex w-full gap-3 ">
           <Image
             src={natureCard.image}
             className="w-28 rounded-xl"
