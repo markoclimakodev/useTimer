@@ -1,10 +1,18 @@
 'use client'
-import { TimerProvider } from '@/context/TimerContext'
+import { Player } from '@/components/Player'
+import { Timer } from '@/components/Timer'
+import { PlayerProvider } from '@/context/playerContext'
+import { TimerProvider } from '@/context/timerContext'
 
 export default function Home() {
   return (
     <TimerProvider>
-      <main className="relative mx-auto mt-10 flex w-[314px] flex-col gap-4 md:mt-20 md:w-[506px] "></main>
+      <PlayerProvider>
+        <main className="relative mx-auto mt-10 flex w-[314px] flex-col gap-4 md:mt-20 md:w-[506px] ">
+          <Timer />
+          <Player />
+        </main>
+      </PlayerProvider>
     </TimerProvider>
   )
 }
