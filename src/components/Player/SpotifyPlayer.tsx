@@ -1,19 +1,41 @@
-import { LinkIcon } from '@/assets/icons/LinkIcon'
-import { ChangeEvent } from 'react'
+import { LinkIcon } from 'lucide-react'
+import { ChangeEvent, useState } from 'react'
+import { setTimeout } from 'timers'
 
-interface SpotifyPlayerProps {
-  placeholderMessage: string
-  handlePlaylistChange: (event: ChangeEvent<HTMLInputElement>) => void
-  playlist: string
-  isLoading: boolean
-}
+const placeholder = 'Cole a URL da playlist aqui'
+const placeholderLoading = 'Carregando...'
+const placeholderFailure = 'Falha ao carregar a playlist'
 
-export const SpotifyPlayer = ({
-  handlePlaylistChange,
-  placeholderMessage,
-  playlist,
-  isLoading,
-}: SpotifyPlayerProps) => {
+export const SpotifyPlayer = () => {
+  const [playlist, setPlaylist] = useState('7p74IyGRffWebhuk43cQWD')
+  const [isLoading, setIsLoading] = useState(false)
+  const [placeholderMessage, setPlaceholderMessage] = useState(placeholder)
+
+  const handlePlaylistChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setIsLoading(true)
+    const playlistUrl = event.target.value
+    const regex = /\/playlist\/([^/?]+)/
+    const match = playlistUrl.match(regex)
+    if (match === null) {
+      setTimeout(() => {
+        setPlaceholderMessage(placeholderFailure)
+        event.target.value = ''
+      }, 1000)
+      return
+    }
+    const playlistLink = match[1]
+    setPlaceholderMessage(placeholderLoading)
+
+    setTimeout(() => {
+      setPlaylist(playlistLink)
+      setPlaceholderMessage(placeholder)
+    }, 500)
+    setIsLoading(false)
+
+    localStorage.setItem('playlist', playlistLink)
+    event.target.value = ''
+  }
+
   return (
     <>
       <label
@@ -27,7 +49,7 @@ export const SpotifyPlayer = ({
           onChange={handlePlaylistChange}
           className="w-full bg-transparent text-smoke outline-none"
         />
-        <LinkIcon />
+        <LinkIcon color="#CFD4D4" />
       </label>
       {isLoading ? (
         <section className="flex h-[420px] w-full items-center justify-center md:h-[480px] xl:h-[361px] 2xl:h-[380px] 3xl:h-[480px]">
@@ -35,7 +57,7 @@ export const SpotifyPlayer = ({
         </section>
       ) : (
         <iframe
-          src={`https://open.spotify.com/embed/playlist/${playlist}?utm_source=generator&theme=0`}
+          src={`https://open.spotify.com/embed/playlist/${playlist}?utm_source=generator&theme=0&robust_level=1`}
           allowFullScreen={false}
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="eager"

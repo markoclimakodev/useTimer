@@ -1,39 +1,65 @@
-import { PauseIcon } from '@/assets/icons/PauseIcon'
-import { PlayIcon } from '@/assets/icons/PlayIcon'
-import { StopIcon } from '@/assets/icons/StopIcon'
-import { TimerIcon } from '@/assets/icons/TimerIcon'
+'useClient'
+import { TimerContext } from '@/context/timerContext'
+import { Clock3, PauseCircle, PlayCircle, StopCircle } from 'lucide-react'
+import { useContext } from 'react'
 import { Button } from '../Button'
 
-interface TimerControlsProps {
-  isCountdownActive: boolean
-  selectedFeature: 'play' | 'pause' | 'none'
-  handleStart: () => void
-  handlePause: () => void
-  handleStop: () => void
-  handleOpenModal: () => void
-}
-export const TimerControls = ({
-  handleStart,
-  handlePause,
-  handleStop,
-  handleOpenModal,
-  isCountdownActive,
-  selectedFeature,
-}: TimerControlsProps) => {
+export const TimerControls = () => {
+  const {
+    timer,
+    setTimer,
+    isActive,
+    setIsActive,
+    setIsModalOpen,
+    activeFunctionality,
+    setActiveFunctionality,
+  } = useContext(TimerContext)
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true)
+    setIsActive(false)
+  }
+
+  const handleStartTimer = () => {
+    if (timer === 0) {
+      handleOpenModal()
+      setIsActive(false)
+    } else {
+      setIsActive(true)
+      setActiveFunctionality('countdown-running')
+    }
+  }
+
+  const handlePauseTimer = () => {
+    if (timer === 0) {
+      handleOpenModal()
+      setIsActive(false)
+    } else {
+      setIsActive(false)
+      setActiveFunctionality('countdown-paused')
+    }
+  }
+
+  const handleStopTimer = () => {
+    setIsActive(false)
+    setTimer(0)
+    setActiveFunctionality('none')
+  }
+
   return (
-    <section className="flex w-full justify-center gap-4 ">
+    <section className="flex gap-4">
       <Button
-        icon={PlayIcon}
-        onClick={handleStart}
-        isActive={isCountdownActive && selectedFeature === 'play'}
+        icon={PlayCircle}
+        onClick={handleStartTimer}
+        isActive={isActive && activeFunctionality === 'countdown-running'}
       />
       <Button
-        icon={PauseIcon}
-        onClick={handlePause}
-        isActive={!isCountdownActive && selectedFeature === 'pause'}
+        icon={PauseCircle}
+        onClick={handlePauseTimer}
+        isActive={!isActive && activeFunctionality === 'countdown-paused'}
       />
-      <Button icon={StopIcon} onClick={handleStop} />
-      <Button icon={TimerIcon} onClick={handleOpenModal} />
+      <Button icon={StopCircle} onClick={handleStopTimer} />
+      <Button icon={Clock3} onClick={handleOpenModal} />
     </section>
   )
 }
