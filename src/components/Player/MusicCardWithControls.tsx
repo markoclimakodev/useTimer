@@ -1,11 +1,17 @@
 import { TimerContext } from '@/context/timerContext'
 import { MusicCardProps } from '@/types'
 import { PauseCircle, PlayCircle, Repeat, Volume2, VolumeX } from 'lucide-react'
+import { Tooltip } from 'react-tooltip'
+
 import Image from 'next/image'
 import { ChangeEvent, useContext, useEffect, useRef, useState } from 'react'
 import { Button } from '../Button'
 
-export const MusicCard = ({ sound, image, type }: MusicCardProps) => {
+export const MusicCardWithControls = ({
+  sound,
+  image,
+  type,
+}: MusicCardProps) => {
   const [isPlaying, setIsPlaying] = useState(false)
   const [volume, setVolume] = useState(1)
   const [loop, setLoop] = useState(true)
@@ -61,29 +67,55 @@ export const MusicCard = ({ sound, image, type }: MusicCardProps) => {
             icon={isPlaying ? PauseCircle : PlayCircle}
             onClick={togglePlay}
             isActive={isPlaying}
+            data-tooltip-id="play-pause-btn"
           />
-          <Button icon={Repeat} onClick={handleLoop} isActive={loop} />
+          <Tooltip
+            id="play-pause-btn"
+            content="Reproduzir/Pausar"
+            place="bottom"
+          />
         </fieldset>
-        <label
-          htmlFor="volume"
-          className="mb-2 flex items-center gap-1 rounded-lg  px-2 text-sm font-medium"
-        >
-          {volume === 0 ? (
-            <VolumeX color="#CFD4D4" />
-          ) : (
-            <Volume2 color="#CFD4D4" />
-          )}
-          <input
-            type="range"
-            min="0"
-            max="1"
-            step="0.1"
-            id="volume"
-            value={volume}
-            onChange={handleVolumeChange}
-            className=" h-[0.25rem]  cursor-pointer appearance-none rounded-lg bg-gray-200 accent-grass "
+        <fieldset>
+          <label
+            htmlFor="volume"
+            className="mb-2 flex items-center gap-1 rounded-lg  px-2 text-sm font-medium"
+          >
+            {volume === 0 ? (
+              <VolumeX color="#CFD4D4" />
+            ) : (
+              <Volume2 color="#CFD4D4" />
+            )}
+            <input
+              type="range"
+              min="0"
+              max="1"
+              step="0.1"
+              id="volume"
+              value={volume}
+              onChange={handleVolumeChange}
+              className=" h-[0.25rem]  cursor-pointer appearance-none rounded-lg bg-gray-200 accent-grass "
+              data-tooltip-id="volume-tooltip"
+            />
+            <Tooltip
+              id="volume-tooltip"
+              content="Controle de Volume"
+              place="bottom"
+            />
+          </label>
+        </fieldset>
+        <fieldset className="pr-1">
+          <Button
+            icon={Repeat}
+            onClick={handleLoop}
+            isActive={loop}
+            data-tooltip-id="loop-btn"
           />
-        </label>
+          <Tooltip
+            id="loop-btn"
+            content="Ativar/Desativar Loop"
+            place="bottom"
+          />
+        </fieldset>
       </form>
     </section>
   )
