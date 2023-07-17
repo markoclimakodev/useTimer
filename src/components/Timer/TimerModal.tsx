@@ -39,11 +39,17 @@ export const TimerModal = () => {
           : 'hidden'
       }
     >
-      <form className=" flex flex-col gap-4  rounded-lg bg-carbon_100 p-4">
-        <fieldset className="flex flex-col">
-          <legend className="mb-2 text-[16px] text-smoke">
+      <form className="relative flex  flex-col  gap-3 rounded-lg bg-carbon_100 px-4 py-3">
+        <section className="flex justify-between">
+          <h2 className="mb-2 text-[16px] text-smoke">
             Informe a duração desejada:
-          </legend>
+          </h2>
+          <X
+            onClick={handleCloseModal}
+            className="absolute right-0 top-0 cursor-pointer rounded  text-smoke hover:bg-rose-700"
+          />
+        </section>
+        <fieldset className="flex items-center gap-2">
           <label
             htmlFor="minutes"
             className="flex rounded-lg bg-carbon_200 p-3"
@@ -54,25 +60,16 @@ export const TimerModal = () => {
               name="minutes"
               onChange={handleSetTimerChangeValue}
               value={time}
+              placeholder="Ex: 15:00 ou 15"
               className="bg-transparent text-smoke outline-none"
             />
           </label>
         </fieldset>
         <fieldset className="flex items-center justify-end gap-2 p-1">
-          <button
-            type="button"
-            onClick={handleCloseModal}
-            className="rounded bg-rose-600"
-          >
-            <X size={32} color="#CFD4D4" />
-          </button>
-          <button
-            type="button"
+          <Check
             onClick={handleSetTimer}
-            className="rounded bg-grass"
-          >
-            <Check size={32} color="#CFD4D4" />
-          </button>
+            className="rounded bg-emerald-600 text-smoke hover:bg-grass"
+          />
         </fieldset>
       </form>
     </section>
