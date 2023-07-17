@@ -14,7 +14,6 @@ export const TimerControls = () => {
     activeFunctionality,
     setActiveFunctionality,
   } = useContext(TimerContext)
-
   const handleOpenModal = () => {
     setIsModalOpen(true)
     setIsActive(false)
@@ -42,7 +41,7 @@ export const TimerControls = () => {
 
   const handleStopTimer = () => {
     setIsActive(false)
-    setTimer(0)
+    setTimer(600)
     setActiveFunctionality('none')
   }
 

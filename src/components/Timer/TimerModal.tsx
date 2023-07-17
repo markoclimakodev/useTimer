@@ -15,15 +15,19 @@ export const TimerModal = () => {
 
   const handleSetTimer = () => {
     const [minutesString = '0', secondsString = '0'] = time.split(':')
-    let minutes = Number(minutesString)
-    const seconds = Number(secondsString)
+    let minutes = parseFloat(minutesString)
+    const seconds = parseFloat(secondsString)
 
     if (minutes > 60) {
       minutes = 60
     }
 
-    if (minutes === 0) {
+    if (isNaN(minutes)) {
       minutes = 10
+    }
+
+    if (minutes === 0 && seconds > 0) {
+      minutes = 0
     }
 
     const totalSeconds = minutes * 60 + seconds
