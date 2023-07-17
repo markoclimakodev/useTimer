@@ -1,7 +1,8 @@
+import { TimerContext } from '@/context/timerContext'
 import { MusicCardProps } from '@/types'
 import { PauseCircle, PlayCircle, Repeat, Volume2, VolumeX } from 'lucide-react'
 import Image from 'next/image'
-import { ChangeEvent, useEffect, useRef, useState } from 'react'
+import { ChangeEvent, useContext, useEffect, useRef, useState } from 'react'
 import { Button } from '../Button'
 
 export const MusicCard = ({ sound, image, type }: MusicCardProps) => {
@@ -9,6 +10,7 @@ export const MusicCard = ({ sound, image, type }: MusicCardProps) => {
   const [volume, setVolume] = useState(1)
   const [loop, setLoop] = useState(true)
   const audioRef = useRef<HTMLAudioElement | null>(null)
+  const { timer } = useContext(TimerContext)
 
   useEffect(() => {
     const audio = audioRef.current
@@ -16,7 +18,10 @@ export const MusicCard = ({ sound, image, type }: MusicCardProps) => {
     if (audio) {
       isPlaying ? audio.play() : audio.pause()
     }
-  }, [isPlaying])
+    if (timer === 0) {
+      setIsPlaying(false)
+    }
+  }, [isPlaying, timer])
 
   const togglePlay = () => {
     setIsPlaying(!isPlaying)
