@@ -2,7 +2,7 @@ import { ActiveFunctionalityType, TimerContextProps } from '@/types'
 import React, { createContext, useState } from 'react'
 
 export const TimerContext = createContext<TimerContextProps>({
-  time: '0',
+  time: '10',
   setTime: () => {},
   timer: 0,
   setTimer: () => {},
@@ -22,7 +22,7 @@ export const TimerProvider = ({ children }: TimerProviderProps) => {
   const [time, setTime] = useState('0')
   const [isActive, setIsActive] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const [timer, setTimer] = useState(0)
+  const [timer, setTimer] = useState(600)
   const [activeFunctionality, setActiveFunctionality] =
     useState<ActiveFunctionalityType>('none')
 
