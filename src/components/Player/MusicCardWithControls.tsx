@@ -61,8 +61,8 @@ export const MusicCardWithControls = ({
         className={`rounded-lg ${isPlaying ? 'animate-pulse' : 'animate-none'}`}
       />
       <audio ref={audioRef} src={sound} loop={loop} />
-      <form className=" z-10 flex h-1/3 w-full items-end justify-between rounded-b-lg bg-carbon_100/75">
-        <fieldset className="flex gap-2 rounded-lg p-1">
+      <form className=" z-10 flex h-1/3 w-full items-center justify-between rounded-b-lg bg-carbon_100/75">
+        <fieldset className="flex gap-2 rounded-lg px-2 py-1">
           <Button
             icon={isPlaying ? PauseCircle : PlayCircle}
             onClick={togglePlay}
@@ -78,13 +78,10 @@ export const MusicCardWithControls = ({
         <fieldset>
           <label
             htmlFor="volume"
-            className="mb-2 flex items-center gap-1 rounded-lg  px-2 text-sm font-medium"
+            className="mb-2 flex w-64 items-center justify-center gap-2 rounded-lg text-sm font-medium text-smoke"
           >
-            {volume === 0 ? (
-              <VolumeX color="#CFD4D4" />
-            ) : (
-              <Volume2 color="#CFD4D4" />
-            )}
+            <Button icon={volume === 0 ? VolumeX : Volume2} />
+
             <input
               type="range"
               min="0"
@@ -93,9 +90,12 @@ export const MusicCardWithControls = ({
               id="volume"
               value={volume}
               onChange={handleVolumeChange}
-              className=" h-[0.25rem]  cursor-pointer appearance-none rounded-lg bg-gray-200 accent-grass "
+              className=" h-[0.2rem] cursor-pointer appearance-none rounded-lg bg-gray-200 accent-grass"
               data-tooltip-id="volume-tooltip"
             />
+            <span className="w-1/3">
+              {volume > 0 ? `${volume * 100}%` : 'Sem som'}
+            </span>
             <Tooltip
               id="volume-tooltip"
               content="Controle de Volume"
