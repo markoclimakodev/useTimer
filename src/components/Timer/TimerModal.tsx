@@ -46,7 +46,7 @@ export const TimerModal = () => {
           </h2>
           <X
             onClick={handleCloseModal}
-            className="absolute right-0 top-0 cursor-pointer rounded  text-smoke hover:bg-rose-700"
+            className="absolute right-0 top-0 cursor-pointer rounded text-rose-600 hover:text-rose-700"
           />
         </section>
         <fieldset className="flex items-center gap-2">

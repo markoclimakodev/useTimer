@@ -19,7 +19,7 @@ interface TimerProviderProps {
 }
 
 export const TimerProvider = ({ children }: TimerProviderProps) => {
-  const [time, setTime] = useState('0')
+  const [time, setTime] = useState('')
   const [isActive, setIsActive] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [timer, setTimer] = useState(600)
