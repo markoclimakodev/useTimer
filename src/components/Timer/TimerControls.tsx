@@ -52,7 +52,7 @@ export const TimerControls = () => {
         icon={PlayCircle}
         onClick={handleStartTimer}
         isActive={isActive && activeFunctionality === 'countdown-running'}
-        data-for="start-btn"
+        data-tooltip-id="start-btn"
       />
       <Tooltip id="start-btn" content="Iniciar" place="bottom" />
 
