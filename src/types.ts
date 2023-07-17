@@ -1,22 +1,33 @@
-import React, { ChangeEvent } from 'react'
+import React, { Dispatch, SetStateAction } from 'react'
 
-export interface IconProps {
-  className: string
+export type ActiveFunctionalityType =
+  | 'countdown-running'
+  | 'countdown-paused'
+  | 'none'
+
+export interface TimerContextProps {
+  time: string
+  setTime: Dispatch<SetStateAction<string>>
+  timer: number
+  setTimer: Dispatch<SetStateAction<number>>
+  isActive: boolean
+  setIsActive: Dispatch<SetStateAction<boolean>>
+  isModalOpen: boolean
+  setIsModalOpen: Dispatch<SetStateAction<boolean>>
+  activeFunctionality: ActiveFunctionalityType
+  setActiveFunctionality: Dispatch<SetStateAction<ActiveFunctionalityType>>
 }
 
-export interface TimerProps {
-  handleOpenModal: () => void
-  handleStop: () => void
-  handleStart: () => void
-  handlePause: () => void
-  isCountdownActive: boolean
-  selectedFeature: 'play' | 'pause' | 'none'
-  minutesRemaining: number
-  secondsRemaining: number
-  modalIsOpen: boolean
-  handleCloseModal: (event: React.MouseEvent<HTMLButtonElement>) => void
-  handleSetTimerValue: (event: ChangeEvent<HTMLInputElement>) => void
-  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void
-  timeInputPlaceholder: string
-  timeInputValue: string
+export type PlayerVariantType = 'spotify' | 'nature'
+
+export interface PlayerContextProps {
+  playerVariant: PlayerVariantType
+  setPlayerVariant: Dispatch<SetStateAction<PlayerVariantType>>
 }
+
+export type InputChangeEvent = React.ChangeEvent<HTMLInputElement>
+
+export type PlaceholderType =
+  | 'Cole a URL da playlist aqui'
+  | 'Carregando...'
+  | 'Falha ao carregar a playlist'

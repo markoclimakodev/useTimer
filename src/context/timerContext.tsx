@@ -1,19 +1,5 @@
-import React, { Dispatch, SetStateAction, createContext, useState } from 'react'
-
-type ActiveFunctionalityType = 'countdown-running' | 'countdown-paused' | 'none'
-
-interface TimerContextProps {
-  time: string
-  setTime: Dispatch<SetStateAction<string>>
-  timer: number
-  setTimer: Dispatch<SetStateAction<number>>
-  isActive: boolean
-  setIsActive: Dispatch<SetStateAction<boolean>>
-  isModalOpen: boolean
-  setIsModalOpen: Dispatch<SetStateAction<boolean>>
-  activeFunctionality: ActiveFunctionalityType
-  setActiveFunctionality: Dispatch<SetStateAction<ActiveFunctionalityType>>
-}
+import { ActiveFunctionalityType, TimerContextProps } from '@/types'
+import React, { createContext, useState } from 'react'
 
 export const TimerContext = createContext<TimerContextProps>({
   time: '0',

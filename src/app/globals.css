@@ -23,7 +23,6 @@
 
 .rhap_progress-bar {
   color: #CFD4D4;
-
 }
 
 .rhap_controls-section {
@@ -36,10 +35,7 @@
   display: flex;
   justify-content: space-between;
   gap: 1rem;
-
-
 }
-
 
 ::-webkit-scrollbar {
   width: 0px;

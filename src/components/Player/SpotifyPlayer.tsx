@@ -1,36 +1,45 @@
+import { InputChangeEvent, PlaceholderType } from '@/types'
 import { LinkIcon } from 'lucide-react'
-import { ChangeEvent, useState } from 'react'
-import { setTimeout } from 'timers'
-
-const placeholder = 'Cole a URL da playlist aqui'
-const placeholderLoading = 'Carregando...'
-const placeholderFailure = 'Falha ao carregar a playlist'
+import { useEffect, useState } from 'react'
 
 export const SpotifyPlayer = () => {
   const [playlist, setPlaylist] = useState('7p74IyGRffWebhuk43cQWD')
-  const [isLoading, setIsLoading] = useState(false)
-  const [placeholderMessage, setPlaceholderMessage] = useState(placeholder)
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [placeholder, setPlaceholder] = useState<PlaceholderType>(
+    'Cole a URL da playlist aqui',
+  )
 
-  const handlePlaylistChange = (event: ChangeEvent<HTMLInputElement>) => {
+  useEffect(() => {
+    setIsLoading(true)
+    const savedPlaylist = localStorage.getItem('playlist')
+    if (savedPlaylist) {
+      setPlaylist(savedPlaylist)
+    }
+    setIsLoading(false)
+  }, [])
+
+  const handlePlaylistChange = (event: InputChangeEvent) => {
     setIsLoading(true)
     const playlistUrl = event.target.value
     const regex = /\/playlist\/([^/?]+)/
     const match = playlistUrl.match(regex)
     if (match === null) {
       setTimeout(() => {
-        setPlaceholderMessage(placeholderFailure)
+        setPlaceholder('Falha ao carregar a playlist')
         event.target.value = ''
       }, 1000)
+      setIsLoading(false)
       return
     }
+
     const playlistLink = match[1]
-    setPlaceholderMessage(placeholderLoading)
+    setPlaceholder('Carregando...')
 
     setTimeout(() => {
       setPlaylist(playlistLink)
-      setPlaceholderMessage(placeholder)
+      setPlaceholder('Cole a URL da playlist aqui')
+      setIsLoading(false)
     }, 500)
-    setIsLoading(false)
 
     localStorage.setItem('playlist', playlistLink)
     event.target.value = ''
@@ -45,7 +54,7 @@ export const SpotifyPlayer = () => {
         <input
           type="text"
           id="playlist"
-          placeholder={placeholderMessage}
+          placeholder={placeholder}
           onChange={handlePlaylistChange}
           className="w-full bg-transparent text-smoke outline-none"
         />

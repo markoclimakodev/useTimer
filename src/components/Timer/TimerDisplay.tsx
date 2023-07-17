@@ -7,7 +7,6 @@ export const TimerDisplay = () => {
 
   useEffect(() => {
     let countdownInterval: any
-    const timeEnd = new Audio('/sounds/notification.mp3')
 
     if (isActive && timer > 0) {
       countdownInterval = setInterval(() => {
@@ -15,15 +14,11 @@ export const TimerDisplay = () => {
       }, 1000)
     }
 
-    if (countdownInterval === 0) {
-      setActiveFunctionality('none')
-    }
-
     if (timer === 0 && isActive) {
+      const timeEnd = new Audio('/sounds/notification.mp3')
       timeEnd.play()
-      setActiveFunctionality('none')
       setIsActive(false)
-      timeEnd.play()
+      setActiveFunctionality('none')
     }
 
     return () => {

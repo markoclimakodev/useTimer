@@ -1,11 +1,5 @@
-import React, { Dispatch, SetStateAction, createContext, useState } from 'react'
-
-type PlayerVariantType = 'spotify' | 'nature'
-
-interface PlayerContextProps {
-  playerVariant: PlayerVariantType
-  setPlayerVariant: Dispatch<SetStateAction<PlayerVariantType>>
-}
+import { PlayerContextProps, PlayerVariantType } from '@/types'
+import React, { createContext, useState } from 'react'
 
 export const PlayerContext = createContext<PlayerContextProps>({
   playerVariant: 'spotify',

@@ -1,26 +1,20 @@
-'useClient'
 import { TimerContext } from '@/context/timerContext'
+import { InputChangeEvent } from '@/types'
 import { Check, X } from 'lucide-react'
-import React, { ChangeEvent, useContext } from 'react'
+import { useContext } from 'react'
 
 export const TimerModal = () => {
   const { isModalOpen, setIsModalOpen, time, setTime, setTimer } =
     useContext(TimerContext)
 
-  const handleSetTimerChangeValue = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleSetTimerChangeValue = (event: InputChangeEvent) => {
     const { value } = event.target
-    setTime(value)
+    const time = value.replace(/[^0-9:]/g, '')
+    setTime(time)
   }
 
-  const handleSetTimer = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setIsModalOpen(false)
-
-    event.preventDefault()
-
-    let timeValue = time
-    if (!timeValue.includes(':')) timeValue = `${timeValue}:00`
-
-    const [minutesString, secondsString] = timeValue.split(':')
+  const handleSetTimer = () => {
+    const [minutesString = '0', secondsString = '0'] = time.split(':')
     let minutes = Number(minutesString)
     const seconds = Number(secondsString)
 
