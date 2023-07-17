@@ -39,7 +39,7 @@ export const TimerModal = () => {
           : 'hidden'
       }
     >
-      <form className="relative flex  flex-col  gap-3 rounded-lg bg-carbon_100 px-4 py-3">
+      <form className="relative flex  flex-col  gap-3 rounded-lg bg-carbon_100 px-4 py-3 shadow-lg">
         <section className="flex justify-between">
           <h2 className="mb-2 text-[16px] text-smoke">
             Informe a duração desejada:
