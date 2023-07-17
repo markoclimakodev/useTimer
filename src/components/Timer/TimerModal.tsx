@@ -35,7 +35,7 @@ export const TimerModal = () => {
     <section
       className={
         isModalOpen
-          ? `absolute top-0 z-10 flex  h-screen w-full items-center justify-center bg-mobile bg-contain md:h-full md:w-full md:bg-cover`
+          ? `absolute top-0 z-20 flex  h-screen w-full items-center justify-center bg-mobile bg-contain md:h-full md:w-full md:bg-cover`
           : 'hidden'
       }
     >
