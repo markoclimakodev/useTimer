@@ -7,12 +7,12 @@ import { TimerProvider } from '@/context/timerContext'
 export default function Home() {
   return (
     <TimerProvider>
-      <PlayerProvider>
-        <main className="relative mx-auto mt-10 flex w-[314px] flex-col gap-4 md:mt-20 md:w-[506px] ">
-          <Timer />
+      <main className="relative mx-auto mt-10 flex w-[314px] flex-col gap-4 pb-6 md:mt-20 md:w-[506px]">
+        <Timer />
+        <PlayerProvider>
           <Player />
-        </main>
-      </PlayerProvider>
+        </PlayerProvider>
+      </main>
     </TimerProvider>
   )
 }

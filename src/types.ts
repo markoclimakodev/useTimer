@@ -31,3 +31,9 @@ export type PlaceholderType =
   | 'Cole a URL da playlist aqui'
   | 'Carregando...'
   | 'Falha ao carregar a playlist'
+
+export interface MusicCardProps {
+  sound: string
+  image: string
+  type: string
+}
