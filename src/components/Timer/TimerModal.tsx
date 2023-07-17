@@ -22,6 +22,10 @@ export const TimerModal = () => {
       minutes = 60
     }
 
+    if (minutes === 0) {
+      minutes = 10
+    }
+
     const totalSeconds = minutes * 60 + seconds
     setTimer(totalSeconds)
     setIsModalOpen(false)
