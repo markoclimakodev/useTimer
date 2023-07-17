@@ -2,6 +2,7 @@
 import { TimerContext } from '@/context/timerContext'
 import { Clock3, PauseCircle, PlayCircle, StopCircle } from 'lucide-react'
 import { useContext } from 'react'
+import { Tooltip } from 'react-tooltip'
 import { Button } from '../Button'
 
 export const TimerControls = () => {
@@ -51,14 +52,23 @@ export const TimerControls = () => {
         icon={PlayCircle}
         onClick={handleStartTimer}
         isActive={isActive && activeFunctionality === 'countdown-running'}
+        data-for="start-btn"
       />
+      <Tooltip id="start-btn" content="Iniciar" place="bottom" />
+
       <Button
         icon={PauseCircle}
         onClick={handlePauseTimer}
         isActive={!isActive && activeFunctionality === 'countdown-paused'}
+        data-for="pause-btn"
       />
-      <Button icon={StopCircle} onClick={handleStopTimer} />
-      <Button icon={Clock3} onClick={handleOpenModal} />
+      <Tooltip id="pause-btn" content="Pausar" place="bottom" />
+
+      <Button icon={StopCircle} onClick={handleStopTimer} data-for="stop-btn" />
+      <Tooltip id="stop-btn" content="Redefinir" place="bottom" />
+
+      <Button icon={Clock3} onClick={handleOpenModal} data-for="set-btn" />
+      <Tooltip id="set-btn" content="Configurar tempo" place="bottom" />
     </section>
   )
 }

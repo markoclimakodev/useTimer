@@ -1,11 +1,11 @@
 import { natureCardsInfo } from '@/assets/assets'
-import { MusicCard } from './MusicCard'
+import { MusicCardWithControls } from './MusicCardWithControls'
 
 export const NatureSoundPlayer = () => {
   return (
     <>
       {natureCardsInfo.map((sound) => (
-        <MusicCard
+        <MusicCardWithControls
           key={sound.type}
           sound={sound.sound}
           image={sound.image}
