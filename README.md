@@ -1,6 +1,6 @@
 [Leia em Português](/README.pt-BR.md)
 # useTimer
-Enhance productivity with this Pomodoro timer app. Stay focused, manage time effectively, and enjoy music.
+Enhance productivity with this timer app. Stay focused, manage time effectively, and enjoy music.
 
 ## Features
 
