@@ -25,7 +25,7 @@ Aumente a produtividade com este aplicativo. Mantenha o foco, gerencie o tempo d
 
 ### Integração com o Spotify
 
-- Lista de Reprodução do Spotify: Integre sua lista de reprodução favorita do Spotify para uma experiência de trabalho ou relaxamento harmoniosa.
+- Playlist do Spotify: Integre sua playlist favorita do Spotify.
 
 > **Observação:** É necessário estar logado em sua conta do Spotify por meio de um navegador web para ouvir as faixas completas, em vez das prévias.
 

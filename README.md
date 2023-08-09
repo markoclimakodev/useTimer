@@ -23,7 +23,7 @@ Enhance productivity with this Pomodoro timer app. Stay focused, manage time eff
 
 ### Spotify Integration
 
-- Spotify Playlist: Integrate your favorite Spotify playlist for a harmonious work or relaxation experience.
+- Spotify Playlist: Integrate your favorite Spotify playlist.
 
 > **Note:** You need to be logged in to your Spotify account via a web browser in order to listen to the full tracks, rather than just the previews.
 
