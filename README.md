@@ -28,6 +28,14 @@ Enhance productivity with this Pomodoro timer app. Stay focused, manage time eff
 
 - Spotify Playlist: Integrate your favorite Spotify playlist for a harmonious work or relaxation experience.
 
+> **Note:** You need to be logged in to your Spotify account via a web browser in order to listen to the full tracks, rather than just the previews.
+
+Follow these steps to ensure the best musical experience:
+
+1. Open your preferred web browser and visit the official Spotify website.
+2. Log in to your Spotify account or create a new account if needed.
+3. Once you're logged in, return to our app.
+
 ## Technologies
 - React
 - Next.js
