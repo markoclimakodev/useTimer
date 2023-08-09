@@ -2,7 +2,7 @@ import { PlayerContextProps, PlayerVariantType } from '@/types'
 import React, { useCallback, useState } from 'react'
 import { PlayerContext } from './playerContext'
 
-interface PlayerProviderProps {
+type PlayerProviderProps = {
   children: React.ReactNode
 }
 

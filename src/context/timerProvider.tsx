@@ -2,7 +2,7 @@ import { ActiveFunctionalityType, TimerContextProps } from '@/types'
 import React, { useCallback, useMemo, useState } from 'react'
 import { TimerContext } from './timerContext'
 
-interface TimerProviderProps {
+type TimerProviderProps = {
   children: React.ReactNode
 }
 
