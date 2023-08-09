@@ -60,11 +60,11 @@ npm run dev
 ## Screenshots
 <div style="display: flex; flex-direction: column; gap: 8px; justify-content: space-between;">
   <div style="display: flex; gap: 8px;">
-    <img src="./screenshot/mobile.png" alt="useTimer mobile">
-    <img src="./screenshot/mobile2.png" alt="useTimer mobile">
+    <img src="./screenshots/mobile.png" alt="useTimer mobile">
+    <img src="./screenshots/mobile2.png" alt="useTimer mobile">
   </div>
  <div style="flex: 1;">
-    <img src="./screenshot/desktop.png" alt="useTimer desktop">
+    <img src="./screenshots/desktop.png" alt="useTimer desktop">
   </div>
 
 </div>
