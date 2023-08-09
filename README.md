@@ -1,3 +1,4 @@
+[Leia em Português](/README.pt-BR.md)
 # useTimer
 Enhance productivity with this Pomodoro timer app. Stay focused, manage time effectively, and enjoy music.
 
@@ -7,18 +8,18 @@ Enhance productivity with this Pomodoro timer app. Stay focused, manage time eff
 
 - Start and Pause: Initiate and pause the timer.
 - Stop: Reset the timer to its initial value.
-- Set Timer: Configure the timer duration using the Timer Modal.
+- Set Timer: Configure the timer duration.
 - Automatic Reset: Timer resets to the initial value when it reaches zero.
+
+### Player Selection
+
+- Switch Player: Toggle between the Spotify player and the Nature Sound player for diverse audio experiences.
 
 ### Customization Options
 
 - Volume Control: Adjust the volume level of the nature sound player.
 - Loop Functionality: Toggle the loop feature for continuous sound playback.
 - Nature Sound Selection: Choose from a selection of nature sounds to accompany your work or relaxation.
-
-### Player Selection
-
-- Switch Player: Toggle between the Spotify player and the Nature Sound player for diverse audio experiences.
 
 ### Spotify Integration
 
