@@ -7,11 +7,7 @@ import Image from 'next/image'
 import { ChangeEvent, useContext, useEffect, useRef, useState } from 'react'
 import { Button } from '../Button'
 
-export const MusicCardWithControls = ({
-  sound,
-  image,
-  type,
-}: MusicCardProps) => {
+export const MusicCardControls = ({ sound, image, type }: MusicCardProps) => {
   const [isPlaying, setIsPlaying] = useState(false)
   const [volume, setVolume] = useState(1)
   const [loop, setLoop] = useState(true)
@@ -62,7 +58,7 @@ export const MusicCardWithControls = ({
       />
       <audio ref={audioRef} src={sound} loop={loop} />
       <form className=" z-10 flex h-1/3 w-full items-center justify-between rounded-b-lg bg-carbon_100/75">
-        <fieldset className="flex gap-2 rounded-lg px-2 py-1">
+        <fieldset className="flex gap-2 rounded-lg py-1">
           <Button
             icon={isPlaying ? PauseCircle : PlayCircle}
             onClick={togglePlay}
@@ -78,7 +74,7 @@ export const MusicCardWithControls = ({
         <fieldset>
           <label
             htmlFor="volume"
-            className="mb-2 flex w-64 items-center justify-center gap-2 rounded-lg text-sm font-medium text-smoke"
+            className="mb-2 flex w-60 items-center justify-center gap-2 rounded-lg text-sm font-medium text-smoke"
           >
             <Button icon={volume === 0 ? VolumeX : Volume2} />
 
