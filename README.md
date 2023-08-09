@@ -40,30 +40,22 @@ Enhance productivity with this Pomodoro timer app. Stay focused, manage time eff
 ## Getting Started
 1. Clone this repository:
 ```bash
-
 git@github.com:markoclimakodev/useTimer.git
-
 ```
 
 2. Access the project folder
 ```
-
 cd useTimer
-
 ```
 
 3. Install the dependencies
 ```
-
 npm install
-
 ```
 
 4. Run the project
 ```
-
 npm run dev
-
 ```
 ## Screenshots
 <div style="display: flex; flex-direction: column; gap: 8px; justify-content: space-between;">
