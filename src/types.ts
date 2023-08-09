@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from 'react'
+import React from 'react'
 
 export type ActiveFunctionalityType =
   | 'countdown-running'
@@ -7,22 +7,22 @@ export type ActiveFunctionalityType =
 
 export interface TimerContextProps {
   time: string
-  setTime: Dispatch<SetStateAction<string>>
+  updateTime: Function
   timer: number
-  setTimer: Dispatch<SetStateAction<number>>
+  updateTimer: Function
   isActive: boolean
-  setIsActive: Dispatch<SetStateAction<boolean>>
+  updateActiveStatus: Function
   isModalOpen: boolean
-  setIsModalOpen: Dispatch<SetStateAction<boolean>>
+  updateModalStatus: Function
   activeFunctionality: ActiveFunctionalityType
-  setActiveFunctionality: Dispatch<SetStateAction<ActiveFunctionalityType>>
+  updateActiveFunctionality: Function
 }
 
 export type PlayerVariantType = 'spotify' | 'nature'
 
 export interface PlayerContextProps {
   playerVariant: PlayerVariantType
-  setPlayerVariant: Dispatch<SetStateAction<PlayerVariantType>>
+  handleSetPlayerVariant: Function
 }
 
 export type InputChangeEvent = React.ChangeEvent<HTMLInputElement>
