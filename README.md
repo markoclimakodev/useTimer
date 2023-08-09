@@ -4,7 +4,7 @@ Enhance productivity with this Pomodoro timer app. Stay focused, manage time eff
 
 ## Features
 
-### Intuitive Controls
+### Controls
 
 - Start and Pause: Initiate and pause the timer.
 - Stop: Reset the timer to its initial value.
