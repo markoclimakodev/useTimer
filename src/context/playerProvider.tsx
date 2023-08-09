@@ -1,10 +1,6 @@
 import { PlayerContextProps, PlayerVariantType } from '@/types'
-import React, { createContext, useState } from 'react'
-
-export const PlayerContext = createContext<PlayerContextProps>({
-  playerVariant: 'spotify',
-  setPlayerVariant: () => {},
-})
+import React, { useCallback, useState } from 'react'
+import { PlayerContext } from './playerContext'
 
 interface PlayerProviderProps {
   children: React.ReactNode
@@ -14,9 +10,13 @@ export const PlayerProvider = ({ children }: PlayerProviderProps) => {
   const [playerVariant, setPlayerVariant] =
     useState<PlayerVariantType>('spotify')
 
+  const handleSetPlayerVariant = useCallback((variant: PlayerVariantType) => {
+    setPlayerVariant(variant)
+  }, [])
+
   const playerContextValue: PlayerContextProps = {
     playerVariant,
-    setPlayerVariant,
+    handleSetPlayerVariant,
   }
 
   return (

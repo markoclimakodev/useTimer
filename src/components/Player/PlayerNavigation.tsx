@@ -5,16 +5,16 @@ import { BsSpotify } from 'react-icons/bs'
 import { Button } from '../Button'
 
 export const PlayerNavigation = () => {
-  const { playerVariant, setPlayerVariant } = useContext(PlayerContext)
+  const { playerVariant, handleSetPlayerVariant } = useContext(PlayerContext)
 
   const handlePlayerVariant = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ) => {
     const { id } = event.currentTarget
     if (id === 'spotify') {
-      setPlayerVariant('spotify')
+      handleSetPlayerVariant('spotify')
     } else {
-      setPlayerVariant('nature')
+      handleSetPlayerVariant('nature')
     }
   }
   return (
