@@ -8,10 +8,6 @@ Enhance productivity with this Pomodoro timer app. Stay focused, manage time eff
 - Start and Pause: Initiate and pause the timer.
 - Stop: Reset the timer to its initial value.
 - Set Timer: Configure the timer duration using the Timer Modal.
-
-### Real-time Display
-
-- Countdown Display: Monitor the remaining time displayed in minutes and seconds.
 - Automatic Reset: Timer resets to the initial value when it reaches zero.
 
 ### Customization Options
