@@ -1,8 +1,8 @@
 'use client'
 import { Player } from '@/components/Player'
 import { Timer } from '@/components/Timer'
-import { PlayerProvider } from '@/context/playerContext'
-import { TimerProvider } from '@/context/timerContext'
+import { PlayerProvider } from '@/context/playerProvider'
+import { TimerProvider } from '@/context/timerProvider'
 
 export default function Home() {
   return (

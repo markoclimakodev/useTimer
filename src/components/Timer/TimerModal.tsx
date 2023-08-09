@@ -4,16 +4,16 @@ import { Check, X } from 'lucide-react'
 import { useContext } from 'react'
 
 export const TimerModal = () => {
-  const { isModalOpen, setIsModalOpen, time, setTime, setTimer } =
+  const { isModalOpen, updateModalStatus, time, updateTime, updateTimer } =
     useContext(TimerContext)
 
-  const handleSetTimerChangeValue = (event: InputChangeEvent) => {
+  const handleupdateTimerChangeValue = (event: InputChangeEvent) => {
     const { value } = event.target
     const time = value.replace(/[^0-9:]/g, '')
-    setTime(time)
+    updateTime(time)
   }
 
-  const handleSetTimer = () => {
+  const handleupdateTimer = () => {
     const [minutesString = '0', secondsString = '0'] = time.split(':')
     let minutes = parseFloat(minutesString)
     const seconds = parseFloat(secondsString)
@@ -31,13 +31,13 @@ export const TimerModal = () => {
     }
 
     const totalSeconds = minutes * 60 + seconds
-    setTimer(totalSeconds)
-    setIsModalOpen(false)
-    setTime('')
+    updateTimer(totalSeconds)
+    updateModalStatus(false)
+    updateTime('')
   }
 
   const handleCloseModal = () => {
-    setIsModalOpen(false)
+    updateModalStatus(false)
   }
   return (
     <section
@@ -66,7 +66,7 @@ export const TimerModal = () => {
               type="text"
               id="minutes"
               name="minutes"
-              onChange={handleSetTimerChangeValue}
+              onChange={handleupdateTimerChangeValue}
               value={time}
               placeholder="Ex: 15:00 ou 15"
               className="bg-transparent text-smoke outline-none"
@@ -75,7 +75,7 @@ export const TimerModal = () => {
         </fieldset>
         <fieldset className="flex items-center justify-end gap-2 p-1">
           <Check
-            onClick={handleSetTimer}
+            onClick={handleupdateTimer}
             className="rounded bg-emerald-600 text-smoke hover:bg-grass"
           />
         </fieldset>

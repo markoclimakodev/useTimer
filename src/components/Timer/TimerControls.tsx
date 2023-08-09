@@ -8,42 +8,42 @@ import { Button } from '../Button'
 export const TimerControls = () => {
   const {
     timer,
-    setTimer,
+    updateTimer,
     isActive,
-    setIsActive,
-    setIsModalOpen,
+    updateActiveStatus,
+    updateModalStatus,
     activeFunctionality,
-    setActiveFunctionality,
+    updateActiveFunctionality,
   } = useContext(TimerContext)
   const handleOpenModal = () => {
-    setIsModalOpen(true)
-    setIsActive(false)
+    updateModalStatus(true)
+    updateActiveStatus(false)
   }
 
   const handleStartTimer = () => {
     if (timer === 0) {
       handleOpenModal()
-      setIsActive(false)
+      updateActiveStatus(false)
     } else {
-      setIsActive(true)
-      setActiveFunctionality('countdown-running')
+      updateActiveStatus(true)
+      updateActiveFunctionality('countdown-running')
     }
   }
 
   const handlePauseTimer = () => {
     if (timer === 0) {
       handleOpenModal()
-      setIsActive(false)
+      updateActiveStatus(false)
     } else {
-      setIsActive(false)
-      setActiveFunctionality('countdown-paused')
+      updateActiveStatus(false)
+      updateActiveFunctionality('countdown-paused')
     }
   }
 
   const handleStopTimer = () => {
-    setIsActive(false)
-    setTimer(600)
-    setActiveFunctionality('none')
+    updateActiveStatus(false)
+    updateTimer(600)
+    updateActiveFunctionality('none')
   }
 
   return (
